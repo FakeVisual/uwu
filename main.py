@@ -68,4 +68,5 @@ async def hello(interaction: Interaction):
     """))
 
 keep_alive()
+token = os.environ.get("token")
 client.run(token)

@@ -20,7 +20,7 @@ print("sup")
 
 while True:
     # i have no idea what the fuck im doing rn
-    token = process.env.token
+    token = os.environ.get('token')
     try:
         r = requests.get(
             "https://discord.com/api/v10/users/@me",

@@ -8,7 +8,7 @@ def home():
     return "im up bitch"
 
 def run():
-  app.run(host='0.0.0.0',port=1919
+  app.run(host='0.0.0.0',port=3000)
 
 def keep_alive():  
     t = Thread(target=run)

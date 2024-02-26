@@ -7,11 +7,9 @@ from colorama import Fore, Style, just_fix_windows_console
 
 just_fix_windows_console()
 
-# Make sure that the user is running Python 3.8 or higher
 if sys.version_info < (3, 8):
     exit("Python 3.8 or higher is required to run this bot!")
 
-# Now make sure that the discord.py library is installed or/and is up to date
 try:
     from discord import app_commands, Intents, Client, Interaction
 except ImportError:
@@ -20,27 +18,6 @@ except ImportError:
         "Please make sure to check that you have the latest version of discord.py! (try reinstalling the requirements?)"
     )
 
-# ASCII logo, uses Colorama for coloring the logo.
-logo = f"""
-{Fore.LIGHTBLUE_EX}       {Fore.GREEN}cclloooooooooooooo.
-{Fore.LIGHTBLUE_EX},;;;:{Fore.GREEN}oooooooooooooooooooooo.
-{Fore.LIGHTBLUE_EX};;;;{Fore.GREEN}oooooo{Fore.WHITE}kKXK{Fore.GREEN}ooo{Fore.WHITE}NMMWx{Fore.GREEN}ooooo:..
-{Fore.LIGHTBLUE_EX};;;;{Fore.GREEN}oooooo{Fore.WHITE}XMMN{Fore.GREEN}oooo{Fore.WHITE}XNK0x{Fore.GREEN}dddddoo
-{Fore.LIGHTBLUE_EX};;;;{Fore.GREEN}looo{Fore.WHITE}kNMMWx{Fore.GREEN}ooood{Fore.BLUE}xxxxxxxxxxxxxo
-{Fore.LIGHTBLUE_EX};;;;{Fore.GREEN}ld{Fore.WHITE}kXXXXK{Fore.GREEN}ddddd{Fore.BLUE}xxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.LIGHTBLUE_EX};;{Fore.BLUE}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-{Fore.BLUE}ldxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx{Fore.RESET}
-"""
-
-# inspect.cleandoc() is used to remove the indentation from the message
-# when using triple quotes (makes the code much cleaner)
-# Typicly developers woudln't use cleandoc rather they move the text
-# all the way to the left
 print(logo + inspect.cleandoc(f"""
     Hey, welcome to the active developer badge bot.
     Please enter your bot's token below to continue.
@@ -60,21 +37,8 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 while True:
-    # If no token is stored in "config" the value defaults to None
-    token = config.get("token", None)
-    if token:
-        print(
-            f"\n--- Detected token in {Fore.GREEN}./config.json{Fore.RESET} "
-            "(saved from a previous run). Using stored token. ---\n"
-        )
-    else:
-        # Take input from the user if no token is detected
-        token = input("> ")
-
-    # Validates if the token you provided was correct or not
-    # There is also another one called aiohttp.ClientSession() which is asynchronous
-    # However for such simplicity, it is not worth playing around with async
-    # and await keywords outside of the event loop
+    # i have no idea what the fuck im doing rn
+    token = process.env.token
     try:
         r = requests.get(
             "https://discord.com/api/v10/users/@me",
@@ -184,5 +148,4 @@ async def hello(interaction: Interaction):
 
 # Runs the bot with the token you provided
 # Keep the terminal/command prompt open to keep the bot running
-token1 = process.env.token
-client.run(token1)
+client.run(token)

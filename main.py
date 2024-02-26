@@ -5,36 +5,11 @@ import sys
 import os
 from colorama import Fore, Style, just_fix_windows_console
 from keep_alive import keep_alive
+import discord
 from discord import app_commands, Intents, Client, Interaction
 print("wasssssssssssssup")
 
-while True:
-    # i have no idea what the fuck im doing rn
-    token = os.environ.get('token')
-    try:
-        r = requests.get(
-            "https://discord.com/api/v10/users/@me",
-            headers={"Authorization": f"Bot {token}"}
-        )
-        data = r.json()
-    except requests.exceptions.RequestException as e:
-        if e.__class__ == requests.exceptions.ConnectionError:
-            exit(
-                f"{Fore.RED}ConnectionError{Fore.RESET}: "
-                "Discord is commonly blocked on public networks, "
-                "please make sure discord.com is reachable!"
-            )
 
-        elif e.__class__ == requests.exceptions.Timeout:
-            exit(
-                f"{Fore.RED}Timeout{Fore.RESET}: "
-                "Connection to Discord's API has timed out "
-                "(possibly being rate limited?)"
-            )
-
-        # Tells python to quit, along with printing some info on the error that occured
-        exit(f"Unknown error has occurred! Additional info:\n{e}")
-        
 class FunnyBadge(Client):
     def __init__(self, *, intents: Intents):
         super().__init__(intents=intents)

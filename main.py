@@ -2,10 +2,8 @@ import requests
 import json
 import inspect
 import sys
-
 from colorama import Fore, Style, just_fix_windows_console
-
-just_fix_windows_console()
+from keep_alive import keep_alive
 
 if sys.version_info < (3, 8):
     exit("Python 3.8 or higher is required to run this bot!")
@@ -146,6 +144,5 @@ async def hello(interaction: Interaction):
         > Discord Developers server -> https://discord.gg/discord-developers - in the #active-dev-badge channel.
     """))
 
-# Runs the bot with the token you provided
-# Keep the terminal/command prompt open to keep the bot running
+keep_alive()
 client.run(token)

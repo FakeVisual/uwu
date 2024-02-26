@@ -5,19 +5,8 @@ import sys
 import os
 from colorama import Fore, Style, just_fix_windows_console
 from keep_alive import keep_alive
-
-if sys.version_info < (3, 8):
-    exit("Python 3.8 or higher is required to run this bot!")
-
-try:
-    from discord import app_commands, Intents, Client, Interaction
-except ImportError:
-    exit(
-        "Either discord.py is not installed or you are running an older and unsupported version of it."
-        "Please make sure to check that you have the latest version of discord.py! (try reinstalling the requirements?)"
-    )
-
-print("sup")
+from discord import app_commands, Intents, Client, Interaction
+print("wasssssssssssssup")
 
 while True:
     # i have no idea what the fuck im doing rn

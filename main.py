@@ -16,23 +16,7 @@ except ImportError:
         "Please make sure to check that you have the latest version of discord.py! (try reinstalling the requirements?)"
     )
 
-print(logo + inspect.cleandoc(f"""
-    Hey, welcome to the active developer badge bot.
-    Please enter your bot's token below to continue.
-
-    {Style.DIM}Don't close this application after entering the token
-    You may close it after the bot has been invited and the command has been run{Style.RESET_ALL}
-"""))
-
-# Try except block is useful for when you'd like to capture errors
-try:
-    with open("config.json") as f:
-        config = json.load(f)
-except (FileNotFoundError, json.JSONDecodeError):
-    # You can in theory also do "except:" or "except Exception:", but it is not recommended
-    # unless you want to suppress all errors
-    config = {}
-
+print("sup")
 
 while True:
     # i have no idea what the fuck im doing rn

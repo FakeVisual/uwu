@@ -45,33 +45,7 @@ while True:
 
         # Tells python to quit, along with printing some info on the error that occured
         exit(f"Unknown error has occurred! Additional info:\n{e}")
-
-    # If the token is correct, it will continue the code
-    if data.get("id", None):
-        break  # Breaks out of the while loop
-
-    # If the token is incorrect, an error will be printed
-    # You will then be asked to enter a token again (while Loop)
-    print(
-        f"\nSeems like you entered an {Fore.RED}invalid token{Fore.RESET}. "
-        "Please enter a valid token (see Github repo for help)."
-    )
-
-    # Resets the config so that it doesn't use the previous token again
-    config.clear()
-
-
-# This is used to save the token for the next time you run the bot
-with open("config.json", "w") as f:
-    # Check if 'token' key exists in the config.json file
-    config["token"] = token
-
-    # This dumps our working setting to the config.json file
-    # Indent is used to make the file look nice and clean
-    # If you don't want to indent, you can remove the indent=2 from code
-    json.dump(config, f, indent=2)
-
-
+        
 class FunnyBadge(Client):
     def __init__(self, *, intents: Intents):
         super().__init__(intents=intents)

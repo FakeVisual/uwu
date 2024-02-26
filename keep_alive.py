@@ -4,7 +4,7 @@ from threading import Thread
 app = Flask('')
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 def run():

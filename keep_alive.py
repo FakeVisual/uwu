@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from threading import Thread
 
-app = Flask('')
+# PLZ FUCKING WORK FOR THE LOVE FO GOD JUST FUCKIGN WORKKKKKKKKKKKKKK
+app = Flask('', template_folder='crap')
 
 @app.route('/')
 def index():
